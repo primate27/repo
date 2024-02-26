@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Me amas?</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    button {
+        padding: 10px 20px;
+        margin: 10px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+    <h2>¿Me amas?</h2>
+    <p id="message">Por favor, dime que me amas.</p>
+    <button onclick="amar()">Sí</button>
+    <button onclick="cambiarMensaje()">No</button>
+
+    <script>
+        var count = 0;
+        var phrases = ["¿Por qué no me amas?", "Por favor, amame.", "¡Necesito tu amor!", "¿Qué puedo hacer para que me ames?", "Te necesito en mi vida.", "¿No me amas de verdad?", "No puedo vivir sin tu amor.", "¿Qué puedo hacer para ganarme tu amor?", "Por favor, dame una oportunidad.", "¿Podemos intentarlo de nuevo?", "¡Te amo tanto!", "Me rompes el corazón.", "¿No me amas más?", "Dime que sí, por favor.", "Nuestro amor es especial."];
+
+        function amar() {
+            document.getElementById("message").innerText = "Gracias por amarme.";
+            document.querySelectorAll("button")[0].innerText = "¡Sí!";
+        }
+
+        function cambiarMensaje() {
+            var randomIndex = Math.floor(Math.random() * phrases.length);
+            document.getElementById("message").innerText = phrases[randomIndex];
+            document.querySelectorAll("button")[1].innerText = "Por favor, dame tu amor";
+            count++;
+            if (count <= 15) {
+                document.querySelectorAll("button")[0].style.fontSize = (16 + count * 10) + "px";
+            }
+        }
+    </script>
+</body>
+</html>
